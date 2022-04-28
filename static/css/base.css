@@ -1,0 +1,11 @@
+.polls-main {
+  display: flex;
+}
+
+.class {
+  width: 30%;
+}
+
+.welcome {
+  font-size: 50px;
+}

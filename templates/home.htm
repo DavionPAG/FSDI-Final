@@ -1,34 +1,42 @@
 {% extends 'base.htm' %}
-
+{% load static %}
 {% block title %}Home{% endblock title %}
 
 {% block content %}
-<div class="welcome">
-  <h1>This Is Home</h1>
-</div>
 
 <div class="polls-main">
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="https://image.shutterstock.com/image-vector/dishes-icon-set-600w-146492768.jpg" alt="food-poll-img">
+    <img class="card-img-top" src="{% static 'media/food-poll-img.jpg'%}" alt="food-poll-img">
     <div class="card-body">
-      <p class="card-text">Food</p>
+      <a href="{% url 'food-poll' %}">
+        <button type="button" class="btn btn-primary">
+          <p class="card-text">Food</p>
+        </button>
+      </a>
     </div>
   </div>
   
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="https://image.shutterstock.com/image-vector/vector-illustration-neon-future-game-600w-1861318969.jpg" alt="game-poll-img">
+    <img class="card-img-top" src="{% static 'media/game-poll-img.jpg'%}" alt="game-poll-img">
     <div class="card-body">
-      <p class="card-text">Games</p>
+      <a href="{% url 'games-poll' %}">
+        <button type="button" class="btn btn-primary">
+          <p class="card-text">Games</p>
+        </button>
+      </a>
     </div>
   </div>
   
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="https://image.shutterstock.com/image-illustration/online-cinema-art-movie-watching-600w-1799102092.jpg" alt="movie-poll-img">
+    <img class="card-img-top" src="{% static 'media/movie-poll-img.jpg'%}" alt="movie-poll-img">
     <div class="card-body">
-      <p class="card-text">Movies</p>
+      <a href="{% url 'movies-poll' %}">
+        <button type="button" class="btn btn-primary">
+          <p class="card-text">Movies</p>
+        </button>
+      </a>
     </div>
   </div>
-  
 </div>
 
 {% endblock content %}
