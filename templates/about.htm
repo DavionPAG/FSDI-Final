@@ -1,22 +1,22 @@
 {% extends 'base.htm' %}
-
+{% load static %}
 {% block title %}Home{% endblock title %}
 
 {% block content %}
 <div class="welcome">
-  <h1>About</h1>
+  <h1>The Devs</h1>
 </div>
 
 <div class="about-container">
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="{% static 'media/davion-img.jpg'%}" alt="Davion Img">
     <div class="card-body">
       <p class="card-text">Davion Garcia</p>
     </div>
   </div>
   
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="{% static 'media/mike-img.jpg'%}" alt="Mike Img">
     <div class="card-body">
       <p class="card-text">Michael Mckitrick</p>
     </div>

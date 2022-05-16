@@ -1,5 +1,5 @@
 {% extends 'base.htm' %}
-
+{% load static %}
 {% block title %}Poll{% endblock title %}
 
 {% block content %}
@@ -8,20 +8,21 @@
 </div>
 
 <div class="poll-page">
+  {% for movie in movies %}
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="{{movie.item_img}}" alt="{{movie.item_name}} img">
     <div class="card-body">
-      <button>Select</button>
+      <p>{{movie.item_name}}</p>
+      <button class="btn btn-light">Pass</button>
+      <button class="btn btn-light vote-button" value="{{movie.id}}">Pick</button>
     </div>
   </div>
-
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
-    <div class="card-body">
-      <button>Select</button>
-    </div>
-  </div>
-
+  {% endfor %}
 </div>
 
+<div class="submit-container">
+  <a href="{% url 'results' %}">
+    <button class="btn btn-info" id="submit-votes">Submit</button>
+  </a>
+</div>
 {% endblock content %}
