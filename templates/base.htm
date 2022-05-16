@@ -16,43 +16,51 @@
   <link rel="stylesheet" href="{% static 'css/base.css'%}">
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{% url 'home' %}">Site Name Here</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="{% url 'home' %}">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'results' %}">Stats</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'about' %}">About</a>
-      </li>
-    </ul>
+<body>
+  {% csrf_token%}
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}">Pollarize</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'results' %}">Stats</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'about' %}">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  {% block content %}
+  {% endblock content %}
+
+  <div class="footer-container">
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item"><a href="https://github.com/DavionPAG" class="nav-link px-2 text-muted">Davion Garcia</a>
+        </li>
+        <li class="nav-item"><a href="https://github.com/Perseus-the-myth" class="nav-link px-2 text-muted">Michael
+            Mckitrick</a></li>
+      </ul>
+      <p class="text-center text-muted">© 2021</p>
+    </footer>
   </div>
-</nav>
 
-{% block content %}
-{% endblock content %}
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
 
-<div class="container">
-  <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="https://github.com/DavionPAG" class="nav-link px-2 text-muted">Davion Garcia</a></li>
-      <li class="nav-item"><a href="https://github.com/Perseus-the-myth" class="nav-link px-2 text-muted">Michael Mckitrick</a></li>
-    </ul>
-    <p class="text-center text-muted">© 2021</p>
-  </footer>
-</div>
+  <script src="{% static 'base.js'%}"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-  integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  
 </body>
 
 </html>

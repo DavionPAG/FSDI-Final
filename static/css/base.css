@@ -1,11 +1,58 @@
-.polls-main {
+
+
+body {
+  min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  justify-content: center   ;
 }
 
-.class {
-  width: 30%;
+.footer-container {
+  margin-top: auto;
+  font-size: large;
+}
+
+.polls-main, .about-container {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin-top: 3rem;
+}
+
+.poll-page {
+  display: flex;
+  justify-content: center;
+  gap: 10%;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-bottom: 2rem;
 }
 
 .welcome {
-  font-size: 50px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.submit-container {
+  text-align: center;
+  font-size: x-large;
+}
+
+.submit-container button {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.results-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin: auto;
+  gap: 50%;
+}
+
+.top-choices {
+  flex-direction: column-reverse;
 }

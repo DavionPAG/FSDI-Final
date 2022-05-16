@@ -3,7 +3,35 @@
 {% block title %}Results{% endblock title %}
 
 {% block content %}
+
 <div class="welcome">
   <h1>Results</h1>
+</div>
+
+<div class="results-container">
+  <div class="top-votes">
+    <p>Top Choices</p>
+    {% for obj in top_votes %}
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{obj.item_img}}" alt="{{obj.item_name}} img">
+      <div class="card-body">
+        <p>{{obj.item_name}}</p>
+        <p>Votes: {{obj.votes}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="user-votes">
+    <p>Your Choices</p>
+    {% for obj in user_picks %}
+    <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{obj.item_img}}" alt="{{obj.item_name}} img">
+      <div class="card-body">
+        <p>{{obj.item_name}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock content %}

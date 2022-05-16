@@ -1,5 +1,5 @@
 {% extends 'base.htm' %}
-
+{% load static %}
 {% block title %}Poll{% endblock title %}
 
 {% block content %}
@@ -8,22 +8,23 @@
 </div>
 
 <div class="poll-page">
+  {% for food in foods %}
   <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="" alt="Card image cap">
+    <img class="card-img-top" src="{{food.item_img}}" alt="{{food.item_name}} img">
     <div class="card-body">
-      <p></p>
-      <button>Select</button>
+      <p>{{food.item_name}}</p>
+      <button class="btn btn-light">Pass</button>
+      <button class="btn btn-light vote-button" value="{{food.id}}">Pick</button>
     </div>
   </div>
+  {% endfor %}
+  
+</div>
 
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="" alt="Card image cap">
-    <div class="card-body">
-      <p></p>
-      <button>Select</button>
-    </div>
-  </div>
-
+<div class="submit-container">
+  <a href="{% url 'results' %}">
+    <button class="btn btn-info" id="submit-votes">Submit</button>
+  </a>
 </div>
 
 {% endblock content %}
