@@ -7,7 +7,9 @@ $('.vote-button').click(vote_tally)
 $('#submit-votes').click(submit_votes)
 
 function vote_tally(e) {
+  console.log("asdasd")
   console.log(e.target.value)
+  console.log(picks)
 
   if (!picks.includes(e.target.value)) {
     picks.push(e.target.value)
@@ -25,6 +27,8 @@ function submit_votes() {
       picks: picks,
       csrfmiddlewaretoken: csrf,
     },
-    success: (res) => $('.vote-button').html(res)
+    success: function() {
+      location = '/results' // redirect to results page
+    }
   })
 } 

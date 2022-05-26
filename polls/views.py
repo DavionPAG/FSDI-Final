@@ -69,31 +69,34 @@ def GamesPollView(request):
 
 class ResultsPageView(View):
 
+
   user_picks = []
+  cat = ""
   top_votes = []
 
   def post(self,request):
     if (request.method == 'POST'):  
 
-      picks = request.POST.getlist('picks[]')
-
+      picks = request.POST.getlist('picks[]')     
+      ResultsPageView.user_picks = []
+      
       for pick in picks:
         vote = PollSets.objects.get(id=pick)
-        self.user_picks.append(vote)
+        ResultsPageView.user_picks.append(vote)
+        ResultsPageView.cat = vote.item_cat
         vote.votes +=1
-        vote.save()
-
-      top_votes_set = PollSets.objects.filter(item_cat=self.user_picks[0].item_cat)
-      top_3_votes = top_votes_set.order_by('-votes')[:3]
-      
-      for obj in top_3_votes:
-        self.top_votes.append(obj)
+        vote.save()      
 
       return (JsonResponse({}, status=200))
   
 
   def get(self, request):
     if (request.method == 'GET'):
-      return render(request, 'results.htm', context = {'top_votes': self.top_votes, 'user_picks': self.user_picks})
+      # /print(ResultsPageView.cat)
+      # return render(request, 'results.htm', context = {'top_votes': self.top_votes, 'user_picks': self.user_picks})
+      top_votes_set = PollSets.objects.filter(item_cat=ResultsPageView.cat)
+      top_3_votes = top_votes_set.order_by('-votes')[:3]
+
+      return render(request, 'results.htm', context = {'top_votes': top_3_votes, 'user_picks': ResultsPageView.user_picks})
 
 
