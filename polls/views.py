@@ -8,7 +8,6 @@ from django.views.generic import TemplateView
 import requests
 from django.shortcuts import redirect, render
 from django.http import JsonResponse
-from localStoragePy import localStoragePy
 from .models import PollSets
 
 

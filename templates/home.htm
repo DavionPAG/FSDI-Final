@@ -4,6 +4,7 @@
 
 {% block content %}
 
+{% if user.is_authenticated %}
 <div class="welcome">
   <h1>Choose a Category | Cast Your Votes | Get a Prize</h1>
 </div>
@@ -19,7 +20,7 @@
       </a>
     </div>
   </div>
-  
+
   <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="{% static 'media/game-poll-img.jpg'%}" alt="game-poll-img">
     <div class="card-body">
@@ -30,7 +31,7 @@
       </a>
     </div>
   </div>
-  
+
   <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="{% static 'media/movie-poll-img.jpg'%}" alt="movie-poll-img">
     <div class="card-body">
@@ -42,5 +43,9 @@
     </div>
   </div>
 </div>
-
+{% else%}
+<div class="welcome">
+  <h1>You Must Login To Use This App!</h1>
+</div>
+{% endif %}
 {% endblock content %}

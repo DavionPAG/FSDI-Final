@@ -1,18 +1,14 @@
-
 from django.shortcuts import render, redirect
-# Create your views here.
+from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import View
-from django.contrib.auth.decorators import login_required
-from django.views.generic.list import ListView
 from django.contrib.auth import authenticate, login as login_user, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.decorators import permission_required
 
 
 def signout(request):
     logout(request)
-    return redirect('/login')
+    return reverse_lazy('home')
 
 
 def signup(request):
@@ -30,7 +26,7 @@ def signup(request):
             password = form.cleaned_data["password1"]
             user = authenticate(request, username = user_name, password = password)
             login_user(request, user)
-            return redirect('/')
+            return reverse_lazy('home')
 
         else:
             # form not valid
@@ -68,25 +64,4 @@ def login(request):
 
 class MyView(LoginRequiredMixin, View):
     login_url = '/login/'
-    redirect_field_name = 'redirect_to'
-
-
-@permission_required('catalog.can_mark_returned')
-@permission_required('catalog.can_edit')
-def my_view(request):
-    ...
-
-from django.contrib.auth.mixins import PermissionRequiredMixin
-
-class MyView(PermissionRequiredMixin, View):
-    permission_required = 'catalog.can_mark_returned'
-    # Or multiple permissions
-    permission_required = ('catalog.can_mark_returned', 'catalog.can_edit')
-    # Note that 'catalog.can_edit' is just an example
-    # the catalog application doesn't have such permission!
-from django.contrib.auth.decorators import login_required, permission_required
-
-@login_required
-@permission_required('catalog.can_mark_returned', raise_exception=True)
-def my_view(request):
-    ...
+    redirect_field_name = '/'

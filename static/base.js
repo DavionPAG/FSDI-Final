@@ -3,14 +3,17 @@
 let picks = []
 let csrf = $('input[name=csrfmiddlewaretoken]').val()
 
+let prize = {
+  img: [],
+  discount: [75, 50, 25],
+  store: ['Gamestop', 'Regall Cinemas',]
+}
+
 $('.vote-button').click(vote_tally)
 $('#submit-votes').click(submit_votes)
 
 function vote_tally(e) {
-  console.log("asdasd")
-  console.log(e.target.value)
-  console.log(picks)
-
+  console.log(e.target)
   if (!picks.includes(e.target.value)) {
     picks.push(e.target.value)
   }
