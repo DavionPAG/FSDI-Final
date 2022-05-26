@@ -79,7 +79,7 @@ class ResultsPageView(View):
 
       picks = request.POST.getlist('picks[]')     
       ResultsPageView.user_picks = []
-      
+
       for pick in picks:
         vote = PollSets.objects.get(id=pick)
         ResultsPageView.user_picks.append(vote)

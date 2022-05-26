@@ -13,6 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nova+Mono&family=Warnes&display=swap"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Telivigala&family=Nova+Mono&family=Warnes&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="{% static 'css/base.css'%}">
 </head>
 
@@ -35,6 +38,34 @@
         <li class="nav-item">
           <a class="nav-link" href="{% url 'about' %}">About</a>
         </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            {{ user.username | upper }}
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="{% url 'password_change' %}">Change Password</a></li>
+            <li><a class="dropdown-item" href="{% url 'logout' %}">Log Out</a></li>
+          </ul>
+        </li>
+        {% else %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Log In/Sign Up
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="{% url 'login' %}">Log In</a></li>
+            <li><a class="dropdown-item" href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a class="dropdown-item" href="{% url 'password_reset' %}">Reset Password</a></li>
+          </ul>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </nav>
