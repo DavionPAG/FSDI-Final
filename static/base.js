@@ -3,12 +3,6 @@
 let picks = []
 let csrf = $('input[name=csrfmiddlewaretoken]').val()
 
-let prize = {
-  img: [],
-  discount: [75, 50, 25],
-  store: ['Gamestop', 'Regall Cinemas',]
-}
-
 $('.vote-button').click(vote_tally)
 $('#submit-votes').click(submit_votes)
 
@@ -20,7 +14,7 @@ function vote_tally(e) {
 }
 
 function submit_votes() {
-  localStorage.setItem('picks', picks)
+  // localStorage.setItem('picks', picks)
   console.log(picks)
 
   $.ajax({
