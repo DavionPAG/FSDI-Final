@@ -14,7 +14,6 @@ function vote_tally(e) {
 }
 
 function submit_votes() {
-  // localStorage.setItem('picks', picks)
   console.log(picks)
 
   $.ajax({
