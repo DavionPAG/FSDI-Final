@@ -4,13 +4,6 @@
 
 - This project was our attempt to put into practice everything we have learned over the course of the FSDI software development program.
 
-## How to Run the App
-
-- Create a directory
-- Create a virtual enviroment
-- Clone the repo
-- Use the manage.py 'runserver' command. (python needed)
-
 ## How it Works
 
 - You must be logged in to use the App(create account from home page)
