@@ -4,7 +4,6 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
 <div class="welcome">
   <h1>Choose a Category</h1>
 </div>
@@ -43,9 +42,5 @@
     </div>
   </div>
 </div>
-{% else%}
-<div class="welcome">
-  <h1>You Must Logged In To Use This App!</h1>
-</div>
-{% endif %}
+
 {% endblock content %}
