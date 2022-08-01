@@ -50,10 +50,6 @@ body {
   padding-right: 2rem;
 }
 
-.pass-button: {
-
-}
-
 .results-container {
   display: flex;
   justify-content: space-evenly;
