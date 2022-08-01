@@ -17,6 +17,7 @@ body {
 
 .polls-main, .about-container {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   gap: 10%;
   margin-top: 3rem;
@@ -47,6 +48,10 @@ body {
 .submit-container button {
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.pass-button: {
+
 }
 
 .results-container {

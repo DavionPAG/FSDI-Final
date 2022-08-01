@@ -6,7 +6,6 @@
 
 ## How it Works
 
-- You must be logged in to use the App(create account from home page)
 - On the home page select one of three categories
 - A list will be displayed based on your choice
 - Pick 3 items from the list and hit submit to cast your votes

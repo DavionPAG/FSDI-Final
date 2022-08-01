@@ -6,6 +6,7 @@ let csrf = $('input[name=csrfmiddlewaretoken]').val()
 $('.vote-button').click(vote_tally)
 $('#submit-votes').click(submit_votes)
 
+
 function vote_tally(e) {
   console.log(e.target)
   if (!picks.includes(e.target.value)) {
@@ -28,3 +29,4 @@ function submit_votes() {
     }
   })
 } 
+
