@@ -13,7 +13,7 @@
 
 ## Resources
 
-- shutterstock.com: stock photos
+- shutterstock.com: stock photos 
 
 ## Technologies
 
